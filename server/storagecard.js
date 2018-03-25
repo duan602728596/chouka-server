@@ -12,7 +12,7 @@ const mysql = require('mysql');
 const config = require('./config');
 
 /* token */
-const TOKEN = new MD5().update('ceshi').digest('hex');
+const TOKEN = new MD5().update(config.token).digest('hex');
 
 /* 根据昵称和userid查询信息 */
 function nicknameQueryInformation(nickname, userid){
