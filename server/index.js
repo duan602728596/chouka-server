@@ -36,7 +36,7 @@ function nextCB(){
   });
 
   /* 查询 */
-  router.post(/^\/search$/, async(ctx, next)=>{
+  router.post('/search', async(ctx, next)=>{
     const parsedUrl = url.parse(ctx.req.url, true);
     const { pathname } = parsedUrl;
     const query = ctx.request.body;
