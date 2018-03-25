@@ -9,5 +9,5 @@ module.exports = {
     table: 'chouka1'
   },
   // http端口
-  httpport: 3000
+  httpport: 5050
 };
