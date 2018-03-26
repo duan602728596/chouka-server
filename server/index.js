@@ -15,6 +15,7 @@ const compress = require('koa-compress');
 const config = require('./config');
 const nicknameQueryInformation = require('./nicknameQueryInformation');
 const storagecard = require('./storagecard');
+const readFile = require('./readFile');
 
 const nextApp = next({
   dev: process.env.NODE_ENV !== 'production'
@@ -51,7 +52,7 @@ function nextCB(){
   });
 
   /* 静态文件 */
-  router.get(/^.*\.[^\.]+$/, async(ctx, next)=>{
+  router.get(/^\/(static|_next)\/.*\.[^\.]+$/, async(ctx, next)=>{
     const parsedUrl = url.parse(ctx.req.url, true);
     const { pathname, query } = parsedUrl;
     await nextApp.render(ctx.req, ctx.res, pathname, query);
@@ -60,6 +61,14 @@ function nextCB(){
 
   /* 抽卡api */
   router.post('/_api/storagecard', storagecard);
+
+  /* https */
+  router.get('/_dnsauth.txt', async(ctx, next)=>{
+    console.log(123124);
+    const pathFile = ctx.path;
+    ctx.body = await readFile(pathFile);
+    await next();
+  });
 
   if(process.env.NODE_ENV === 'production'){
     /* gzip压缩 */
