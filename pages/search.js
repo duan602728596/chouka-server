@@ -17,8 +17,8 @@ const Style = (props)=>{
 .main-table th, .main-table td { vertical-align: middle; }
 .main-table-title { color: #fff; }
 .main-img { margin-right: 20px; width: 106px; }
-.main-table-td1 { width: 40%; }
-.main-table-td2 { width: 60%; }
+.main-table-td1 { width: 55%; }
+.main-table-td2 { width: 45%; }
       `}
     </style>
   );
