@@ -9,9 +9,9 @@ module.exports = {
     table: 'chouka1'
   },
   // http端口
-  httpport: 5050,
+  httpport: 5051,
   // https端口
-  httpsport: 5051,
+  httpsport: 5052,
   // token字符串（md5加密之前）
   token: 'ceshi'
 };

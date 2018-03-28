@@ -3,6 +3,7 @@ import Head from 'next/head';
 import React, { Component, Fragment } from 'react';
 import CommonHead from '../components/commonHead';
 import Header from '../components/header';
+import Footer from '../components/Footer';
 
 const Style = (props)=>{
   return (
@@ -23,32 +24,35 @@ class Index extends Component{
       <Fragment>
         <Head>
           <CommonHead />
-          <title>黄彤扬应援会抽卡查询系统</title>
+          <title>黄彤扬应援网</title>
           <Style />
         </Head>
-        <Header />
-        {/* main */}
-        <div className="container main">
-          <div className="row">
-            {/* 卡牌图鉴 */}
-            <div className="col-sm-12 col-md-6 main-group">
-              <div className="card main-card">
-                <img className="card-img-top main-card-image" src="/static/image/hty1.jpg" alt="卡牌图鉴" />
-                <div className="card-body">
-                  <a className="btn btn-primary btn-block" href="/card">查看卡牌图鉴</a>
+        <div className="body">
+          <Header />
+          {/* main */}
+          <div className="container main">
+            <div className="row">
+              {/* 卡牌图鉴 */}
+              <div className="col-sm-12 col-md-6 main-group">
+                <div className="card main-card">
+                  <img className="card-img-top main-card-image" src="/static/image/hty1.jpg" alt="卡牌图鉴" />
+                  <div className="card-body">
+                    <a className="btn btn-primary btn-block" href="/card">查看卡牌图鉴</a>
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* 卡牌查询 */}
-            <div className="col-sm-12 col-md-6 main-group">
-              <div className="card main-card">
-                <img className="card-img-top main-card-image" src="/static/image/hty2.jpg" alt="卡牌查询" />
-                <div className="card-body">
-                  <a className="btn btn-primary btn-block" href="/search">卡牌查询</a>
+              {/* 卡牌查询 */}
+              <div className="col-sm-12 col-md-6 main-group">
+                <div className="card main-card">
+                  <img className="card-img-top main-card-image" src="/static/image/hty2.jpg" alt="卡牌查询" />
+                  <div className="card-body">
+                    <a className="btn btn-primary btn-block" href="/search">卡牌查询</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <Footer />
         </div>
       </Fragment>
     );

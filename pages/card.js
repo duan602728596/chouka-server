@@ -4,6 +4,7 @@ import React, { Component, Fragment } from 'react';
 import CARD from '../components/CARD';
 import CommonHead from '../components/commonHead';
 import Header from '../components/header';
+import Footer from '../components/Footer';
 
 const Style = (props)=>{
   return (
@@ -43,20 +44,23 @@ class Card extends Component{
       <Fragment>
         <Head>
           <CommonHead />
-          <title>卡牌图鉴 - 黄彤扬应援会抽卡查询系统</title>
+          <title>卡牌图鉴 - 黄彤扬应援网</title>
           <Style />
         </Head>
-        <Header />
-        {/* main */}
-        <div className="container main">
-          <h4 className="text-center text-warning">SSR</h4>
-          <div className="row">{ this.cardView('SSR') }</div>
-          <h4 className="text-center text-danger">SR</h4>
-          <div className="row">{ this.cardView('SR') }</div>
-          <h4 className="text-center text-success">R</h4>
-          <div className="row">{ this.cardView('R') }</div>
-          <h4 className="text-center text-primary">N</h4>
-          <div className="row">{ this.cardView('N') }</div>
+        <div className="body">
+          <Header />
+          {/* main */}
+          <div className="container main">
+            <h4 className="text-center text-warning">SSR</h4>
+            <div className="row">{ this.cardView('SSR') }</div>
+            <h4 className="text-center text-danger">SR</h4>
+            <div className="row">{ this.cardView('SR') }</div>
+            <h4 className="text-center text-success">R</h4>
+            <div className="row">{ this.cardView('R') }</div>
+            <h4 className="text-center text-primary">N</h4>
+            <div className="row">{ this.cardView('N') }</div>
+          </div>
+          <Footer />
         </div>
       </Fragment>
     );

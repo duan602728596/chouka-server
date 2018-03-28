@@ -1,7 +1,15 @@
+html, body { width: 100%; height: 100%; }
+/* body */
+#__next { height: 100%; }
+.body { display: flex; flex-direction: column; height: 100%; }
 /* header */
-.header { margin-bottom: 20px; }
+.header { flex: 0 0 auto; margin-bottom: 20px; }
 .header-title, .header-nav { padding: 10px 15px; }
 .header-title { margin: 0;  font-size: 18px; text-align: center; color: #fff; }
 .header-nav a { padding: 0 10px;color: #fff; }
 /* main */
-.main { margin-bottom: 20px; }
+.main { flex: 1 0 auto; margin-bottom: 20px; }
+/* footer */
+.footer{ flex: 0 0 auto; height: 30px; line-height: 30px; font-size: 12px; background-color: #ddd; }
+.footer-ml30 { margin-left: 30px; }
+.footer-ml10 { margin-left: 10px; }

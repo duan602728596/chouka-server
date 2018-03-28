@@ -4,6 +4,7 @@ import React, { Component, Fragment } from 'react';
 import CARD from '../components/CARD';
 import CommonHead from '../components/commonHead';
 import Header from '../components/header';
+import Footer from '../components/Footer';
 
 const Style = (props)=>{
   return (
@@ -75,93 +76,96 @@ class Search extends Component{
       <Fragment>
         <Head>
           <CommonHead />
-          <title>查询 - 黄彤扬应援会抽卡查询系统</title>
+          <title>查询 - 黄彤扬应援网</title>
           <Style />
         </Head>
-        <Header />
-        <div className="container main">
-          <form className="main-box" action="/search" method="POST">
-            <div className="form-group">
-              <label htmlFor="nickname">输入摩点昵称：</label>
-              <input className="form-control" id="nickname" name="nickname" type="text" defaultValue={ this.props.nickname } />
-            </div>
-            <button className="btn btn-primary" type="submit">查询</button>
-          </form>
-          {/* 卡牌结果 */}
-          {
-            this.props.err ? <p className="main-box">{ this.props.err }</p> : (
-              <div className="main-box">
-                <div>摩点昵称：{ this.props.nickname }（{ this.props.infor.userid }）</div>
-                <div className="clearfix">
-                  <span className="float-left">抽卡进度：</span>
-                  <div className="float-left progress main-result-progress">
-                    <div className="progress-bar bg-dark"
-                      role="progressbar"
-                      style={{ width: `${ valuenow }%` }}
-                      aria-valuenow={ valuenow }
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    />
-                  </div>
-                  <span className="main-value-now">{ valuenow }%</span>
-                </div>
-                <table className="table table-sm table-bordered main-table">
-                  {/* SSR */}
-                  <thead>
-                    <tr className="bg-warning main-table-title">
-                      <th colSpan={ 2 }>SSR</th>
-                    </tr>
-                  </thead>
-                  <thead>
-                    <tr>
-                      <th>卡牌名称</th>
-                      <th>卡牌数量</th>
-                    </tr>
-                  </thead>
-                  <tbody>{ ssr.view }</tbody>
-                  {/* SR */}
-                  <thead>
-                    <tr className="bg-danger main-table-title">
-                      <th colSpan={ 2 }>SR</th>
-                    </tr>
-                  </thead>
-                  <thead>
-                    <tr>
-                      <th>卡牌名称</th>
-                      <th>卡牌数量</th>
-                    </tr>
-                  </thead>
-                  <tbody>{ sr.view }</tbody>
-                  {/* R */}
-                  <thead>
-                    <tr className="bg-success main-table-title">
-                      <th colSpan={ 2 }>R</th>
-                    </tr>
-                  </thead>
-                  <thead>
-                    <tr>
-                      <th>卡牌名称</th>
-                      <th>卡牌数量</th>
-                    </tr>
-                  </thead>
-                  <tbody>{ r.view }</tbody>
-                  {/* N */}
-                  <thead>
-                    <tr className="bg-primary main-table-title">
-                      <th colSpan={ 2 }>N</th>
-                    </tr>
-                  </thead>
-                  <thead>
-                    <tr>
-                      <th>卡牌名称</th>
-                      <th>卡牌数量</th>
-                    </tr>
-                  </thead>
-                  <tbody>{ n.view }</tbody>
-                </table>
+        <div className="body">
+          <Header />
+          <div className="container main">
+            <form className="main-box" action="/search" method="POST">
+              <div className="form-group">
+                <label htmlFor="nickname">输入摩点昵称：</label>
+                <input className="form-control" id="nickname" name="nickname" type="text" defaultValue={ this.props.nickname } />
               </div>
-            )
-          }
+              <button className="btn btn-primary" type="submit">查询</button>
+            </form>
+            {/* 卡牌结果 */}
+            {
+              this.props.err ? <p className="main-box">{ this.props.err }</p> : (
+                <div className="main-box">
+                  <div>摩点昵称：{ this.props.nickname }（{ this.props.infor.userid }）</div>
+                  <div className="clearfix">
+                    <span className="float-left">抽卡进度：</span>
+                    <div className="float-left progress main-result-progress">
+                      <div className="progress-bar bg-dark"
+                        role="progressbar"
+                        style={{ width: `${ valuenow }%` }}
+                        aria-valuenow={ valuenow }
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      />
+                    </div>
+                    <span className="main-value-now">{ valuenow }%</span>
+                  </div>
+                  <table className="table table-sm table-bordered main-table">
+                    {/* SSR */}
+                    <thead>
+                      <tr className="bg-warning main-table-title">
+                        <th colSpan={ 2 }>SSR</th>
+                      </tr>
+                    </thead>
+                    <thead>
+                      <tr>
+                        <th>卡牌名称</th>
+                        <th>卡牌数量</th>
+                      </tr>
+                    </thead>
+                    <tbody>{ ssr.view }</tbody>
+                    {/* SR */}
+                    <thead>
+                      <tr className="bg-danger main-table-title">
+                        <th colSpan={ 2 }>SR</th>
+                      </tr>
+                    </thead>
+                    <thead>
+                      <tr>
+                        <th>卡牌名称</th>
+                        <th>卡牌数量</th>
+                      </tr>
+                    </thead>
+                    <tbody>{ sr.view }</tbody>
+                    {/* R */}
+                    <thead>
+                      <tr className="bg-success main-table-title">
+                        <th colSpan={ 2 }>R</th>
+                      </tr>
+                    </thead>
+                    <thead>
+                      <tr>
+                        <th>卡牌名称</th>
+                        <th>卡牌数量</th>
+                      </tr>
+                    </thead>
+                    <tbody>{ r.view }</tbody>
+                    {/* N */}
+                    <thead>
+                      <tr className="bg-primary main-table-title">
+                        <th colSpan={ 2 }>N</th>
+                      </tr>
+                    </thead>
+                    <thead>
+                      <tr>
+                        <th>卡牌名称</th>
+                        <th>卡牌数量</th>
+                      </tr>
+                    </thead>
+                    <tbody>{ n.view }</tbody>
+                  </table>
+                </div>
+              )
+            }
+          </div>
+          <Footer />
         </div>
       </Fragment>
     );
