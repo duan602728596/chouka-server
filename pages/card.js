@@ -13,9 +13,8 @@ const Style = (props)=>{
 @media (max-width: 575px) {
   .main-group { -webkit-box-flex: 0; -ms-flex: 0 0 50%; flex: 0 0 50%; width: 50%; }
 }
-.main-card, .main-card-image { width: 150px; }
-.main-card { margin: 0 auto; width: 152px; }
-.main-card-image { height: 200px; }
+.main-card, .main-card-image { width: 208px; }
+.main-card { margin: 0 auto; width: 210px; }
 .main-group { margin-bottom: 20px; }
 .main-card-body { padding-top: 10px; padding-bottom: 10px; }
 .main-card-title { margin: 0; font-size: 14px; }

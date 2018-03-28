@@ -14,7 +14,11 @@ const Style = (props)=>{
 .main-result-progress { margin-top: 5px; width: 300px; }
 .main-value-now { margin-left: 5px; font-size: 12px; }
 .main-table { margin-top: 20px; }
+.main-table th, .main-table td { vertical-align: middle; }
 .main-table-title { color: #fff; }
+.main-img { margin-right: 20px; width: 106px; }
+.main-table-td1 { width: 40%; }
+.main-table-td2 { width: 60%; }
       `}
     </style>
   );
@@ -50,7 +54,10 @@ class Search extends Component{
       all += len > 0 ? 1 : 0;
       view.push(
         <tr key={ `${ level }_${ item.id }` }>
-          <td>{ item.name }</td>
+          <td>
+            <img className="main-img" src={ item.src } />
+            { item.name }
+          </td>
           <td>{ len }</td>
         </tr>
       );
@@ -116,8 +123,8 @@ class Search extends Component{
                     </thead>
                     <thead>
                       <tr>
-                        <th>卡牌名称</th>
-                        <th>卡牌数量</th>
+                        <th className="main-table-td1">卡牌名称</th>
+                        <th className="main-table-td2">卡牌数量</th>
                       </tr>
                     </thead>
                     <tbody>{ ssr.view }</tbody>
