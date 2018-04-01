@@ -20,12 +20,14 @@
 
 ### 网站
 > 修改网站页面请到pages和components文件夹下
+
 1、网站地址：【GET】/   
 2、卡牌图鉴：【GET】/card   
 3、卡牌查询：【GET】/search
 
 ### API
 > API和服务器相关请到server文件夹下
+
 1、抽卡接口：【POST】/_api/storagecard   
   * token：config内配置的token字符串经过md5加密后的32位字符串
   * nickname：摩点昵称
