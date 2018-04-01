@@ -13,8 +13,9 @@ const staticCache = require('koa-static-cache');
 const convert = require('koa-convert');
 const compress = require('koa-compress');
 const config = require('./config');
-const nicknameQueryInformation = require('./nicknameQueryInformation');
-const storagecard = require('./storagecard');
+const nicknameQueryInformation = require('./search/nicknameQueryInformation');
+const queryJson = require('./search/queryJson');
+const storagecard = require('./storagecard/storagecard');
 const readFile = require('./readFile');
 
 const nextApp = next({
@@ -62,9 +63,11 @@ function nextCB(){
   /* 抽卡api */
   router.post('/_api/storagecard', storagecard);
 
+  /* json查询抽卡 */
+  router.post('/_api/queryjson', queryJson);
+
   /* https */
   router.get('/_dnsauth.txt', async(ctx, next)=>{
-    console.log(123124);
     const pathFile = ctx.path;
     ctx.body = await readFile(pathFile);
     await next();

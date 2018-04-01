@@ -1,6 +1,6 @@
 /* 根据昵称查询信息 */
 const mysql = require('mysql');
-const config = require('./config');
+const config = require('../config');
 
 function nicknameQueryInformation(nickname){
   const connection = mysql.createConnection({
