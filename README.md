@@ -33,6 +33,7 @@
   * nickname：摩点昵称
   * userid：摩点的userid
   * record：抽到的卡片的id，Array<string>，例如`['ssr_1', 'ssr_1', 'n_3']`
+
 2、查询接口：【POST】/_api/queryjson   
   * token：config内配置的token字符串经过md5加密后的32位字符串
   * nickname：摩点昵称
