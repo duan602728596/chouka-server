@@ -89,7 +89,7 @@ function nextCB(){
     .use(router.allowedMethods());
 
   http.createServer(app.callback()).listen(config.httpport);
-  http.createServer({
+  https.createServer({
     key: config.key,
     cert: config.cert
   }, app.callback()).listen(config.httpsport);
