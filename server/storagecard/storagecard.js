@@ -9,7 +9,7 @@
  */
 const MD5 = require('md5.js');
 const mysql = require('mysql');
-const config = require('./config');
+const config = require('../config');
 
 /* token */
 const TOKEN = new MD5().update(config.token).digest('hex');
@@ -92,7 +92,7 @@ async function storagecard(ctx, next){
       ctx.body = {
         message: 'Token is wrong.'
       };
-      return;
+      return void 0;
     }
 
     // 查询数据
