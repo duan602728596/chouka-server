@@ -5,7 +5,6 @@ const process = require('process');
 const url = require('url');
 const path = require('path');
 const zlib = require('zlib');
-const fs = require('fs');
 const next = require('next');
 const Koa = require('koa');
 const Router = require('koa-router');
@@ -91,8 +90,8 @@ function nextCB(){
 
   http.createServer(app.callback()).listen(config.httpport);
   http.createServer({
-    key: fs.readFileSync('server.key'),
-    cert: fs.readFileSync('server.crt')
+    key: config.key,
+    cert: config.cert
   }, app.callback()).listen(config.httpsport);
 }
 
