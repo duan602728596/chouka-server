@@ -66,13 +66,6 @@ function nextCB(){
   /* json查询抽卡 */
   router.post('/_api/queryjson', queryJson);
 
-  /* https */
-  router.get('/_dnsauth.txt', async(ctx, next)=>{
-    const pathFile = ctx.path;
-    ctx.body = await readFile(pathFile);
-    await next();
-  });
-
   if(process.env.NODE_ENV === 'production'){
     /* gzip压缩 */
     app.use(compress({
