@@ -1,6 +1,7 @@
 /* 服务器 */
 const http = require('http');
 const https = require('https');
+const fs = require('fs');
 const process = require('process');
 const url = require('url');
 const path = require('path');
@@ -89,10 +90,12 @@ function nextCB(){
     .use(router.allowedMethods());
 
   http.createServer(app.callback()).listen(config.httpport);
+  /*
   https.createServer({
-    key: config.key,
-    cert: config.cert
+    key: fs.readFileSync('./server.key'),
+    cert: fs.readFileSync('./server.crt')
   }, app.callback()).listen(config.httpsport);
+  */
 }
 
 nextApp.prepare().then(nextCB);
