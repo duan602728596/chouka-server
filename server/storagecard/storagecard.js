@@ -10,7 +10,6 @@
 const MD5 = require('md5.js');
 const mysql = require('mysql');
 const config = require('../config');
-const sqlFilter = require('../sqlFilter');
 
 /* token */
 const TOKEN = new MD5().update(config.token).digest('hex');
@@ -26,12 +25,7 @@ function nicknameQueryInformation(nickname, userid){
   });
   connection.connect();
   return new Promise((resolve, reject)=>{
-    if(!(sqlFilter(nickname) && sqlFilter(userid))){
-      reject('sql err');
-      return void 0;
-    }
-    connection.query(`SELECT id, userid, nickname, record from ${ config.db.table }
-WHERE nickname='${ nickname }' AND userid='${ userid }'`, (err, results, fields)=>{
+    connection.query(`SELECT id, userid, nickname, record from ${ config.db.table } WHERE nickname=? AND userid=?`, [nickname, userid], (err, results, fields)=>{
       if(err){
         reject(err);
       }else{
@@ -53,12 +47,7 @@ function insert(userid, nickname, record){
   });
   connection.connect();
   return new Promise((resolve, reject)=>{
-    if(!(sqlFilter(nickname) && sqlFilter(userid) && sqlFilter(record))){
-      reject('sql err');
-      return void 0;
-    }
-    connection.query(`INSERT INTO ${ config.db.table } (userid, nickname, record)
-VALUES ('${ userid }', '${ nickname }', '${ JSON.stringify(record) }')`, (err, results, fields)=>{
+    connection.query(`INSERT INTO ${ config.db.table } (userid, nickname, record) VALUES (?, ?, ?)`, [userid, nickname, JSON.stringify(record)], (err, results, fields)=>{
       if(err){
         reject(err);
       }else{
@@ -80,12 +69,7 @@ function update(userid, nickname, record){
   });
   connection.connect();
   return new Promise((resolve, reject)=>{
-    if(!(sqlFilter(nickname) && sqlFilter(userid) && sqlFilter(record))){
-      reject('sql err');
-      return void 0;
-    }
-    connection.query(`UPDATE ${ config.db.table } SET nickname='${ nickname }', record='${ JSON.stringify(record) }'
-WHERE nickname='${ nickname }' AND userid='${ userid }'`, (err, results, fields)=>{
+    connection.query(`UPDATE ${ config.db.table } SET nickname=?, record=? WHERE nickname=? AND userid=?`, [nickname, JSON.stringify(record), nickname, userid], (err, results, fields)=>{
       if(err){
         reject(err);
       }else{

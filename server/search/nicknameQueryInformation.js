@@ -1,7 +1,6 @@
 /* 根据昵称查询信息 */
 const mysql = require('mysql');
 const config = require('../config');
-const sqlFilter = require('../sqlFilter');
 
 function nicknameQueryInformation(nickname){
   const connection = mysql.createConnection({
@@ -13,12 +12,7 @@ function nicknameQueryInformation(nickname){
   });
   connection.connect();
   return new Promise((resolve, reject)=>{
-    if(!(sqlFilter(nickname))){
-      reject('sql err');
-      return void 0;
-    }
-    connection.query(`SELECT id, userid, nickname, record from ${ config.db.table }
-WHERE nickname='${ nickname }'`, (err, results, fields)=>{
+    connection.query(`SELECT id, userid, nickname, record from ${ config.db.table } WHERE nickname=?`, [nickname], (err, results, fields)=>{
       if(err){
         reject(err);
       }else{
