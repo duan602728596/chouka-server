@@ -55,7 +55,7 @@ class Search extends Component{
       view.push(
         <tr key={ `${ level }_${ item.id }` }>
           <td>
-            <img className="main-img" src={ item.src } />
+            <img className="main-img lazy-load-image" data-src={ item.src } />
             { item.name }
           </td>
           <td>{ len }</td>
@@ -85,6 +85,7 @@ class Search extends Component{
           <CommonHead />
           <title>查询 - 黄彤扬应援网</title>
           <Style />
+          <script src="/static/script/lazy-load-image.js"></script>
         </Head>
         <div className="body">
           <Header />

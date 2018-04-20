@@ -29,7 +29,7 @@ class Card extends Component{
       return (
         <div key={ item.id } className="col-sm-6 col-md-4 col-lg-3 main-group">
           <div className="card main-card">
-            <img className="card-img-top main-card-image" src={ item.src } />
+            <img className="card-img-top main-card-image lazy-load-image" data-src={ item.src } />
             <div className="card-body main-card-body">
               <h5 className="card-title main-card-title">{ item.name }</h5>
             </div>
@@ -45,6 +45,7 @@ class Card extends Component{
           <CommonHead />
           <title>卡牌图鉴 - 黄彤扬应援网</title>
           <Style />
+          <script src="/static/script/lazy-load-image.js"></script>
         </Head>
         <div className="body">
           <Header />
