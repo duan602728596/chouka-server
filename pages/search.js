@@ -85,7 +85,7 @@ class Search extends Component{
           <CommonHead />
           <title>查询 - 黄彤扬应援网</title>
           <Style />
-          <script src="/static/script/lazy-load-image.js"></script>
+          <script src="/static/script/lazy-load-image.js?t=201804201333"></script>
         </Head>
         <div className="body">
           <Header />
