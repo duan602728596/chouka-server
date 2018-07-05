@@ -25,7 +25,7 @@ function nicknameQueryInformation(nickname, userid){
   });
   connection.connect();
   return new Promise((resolve, reject)=>{
-    connection.query(`SELECT id, userid, nickname, record from ${ config.db.table } WHERE nickname=? AND userid=?`, [nickname, userid], (err, results, fields)=>{
+    connection.query(`SELECT id, userid, nickname, record from ${ config.db.table } WHERE userid=?`, [userid], (err, results, fields)=>{
       if(err){
         reject(err);
       }else{
