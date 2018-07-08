@@ -69,7 +69,7 @@ function update(userid, nickname, record){
   });
   connection.connect();
   return new Promise((resolve, reject)=>{
-    connection.query(`UPDATE ${ config.db.table } SET nickname=?, record=? WHERE nickname=? AND userid=?`, [nickname, JSON.stringify(record), nickname, userid], (err, results, fields)=>{
+    connection.query(`UPDATE ${ config.db.table } SET nickname=?, record=? WHERE userid=?`, [nickname, JSON.stringify(record), userid], (err, results, fields)=>{
       if(err){
         reject(err);
       }else{
