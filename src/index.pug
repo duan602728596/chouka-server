@@ -1,0 +1,19 @@
+- var imports = require('./imports');
+
+doctype html
+html
+  head
+    base(href='/')
+    meta(charset='utf-8')
+    meta(name='renderer' content='webkit')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='shortcut icon' href=require('./favicon.ico'))
+    title <%- title %>
+  body
+    // div.app#app
+    | <%- render %>
+    script
+      | window.__INITIAL_STATE__ = <%- initialState %>;
+
+    if htmlWebpackPlugin.options.mode === 'development'
+      script(src=imports.dll)

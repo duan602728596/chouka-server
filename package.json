@@ -1,0 +1,57 @@
+{
+  "name": "qqtools2-chouka-server",
+  "scripts": {
+    "dll": "milktea dll",
+    "start": "npm run clean && npm run clean:server && cross-env NODE_ENV=development milktea start --server --serverRender",
+    "build": "npm run clean && npm run clean:server && cross-env NODE_ENV=production milktea build --serverRender",
+    "clean": "rimraf ./dist",
+    "clean:server": "rimraf ./dist-server",
+    "server": "milktea server --serverRender",
+    "server:pm2": "pm2 start runServer.js",
+    "eslint": "eslint ./ --fix",
+    "case-check": "case-check --dir=\"./\" --css",
+    "update": "milktea update"
+  },
+  "dependencies": {
+    "@jnields/vue-helmet": "^3.0.0",
+    "@sweet-milktea/milktea-cli": "^0.3.5",
+    "@sweet-milktea/server": "^0.3.6",
+    "@sweet-milktea/server-log": "^0.3.0",
+    "ant-design-vue": "^1.3.13",
+    "axios": "^0.19.0",
+    "classnames": "^2.2.6",
+    "node-cmd": "^3.0.0",
+    "pm2": "^3.5.1",
+    "source-map-support": "^0.5.12",
+    "vue": "^2.6.10",
+    "vue-class-component": "^7.1.0",
+    "vue-router": "^3.0.7",
+    "vue-server-renderer": "^2.6.10",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "@sweet-milktea/milktea": "^0.3.6",
+    "@sweet-milktea/util-tools": "^0.3.6",
+    "babel-eslint": "^10.0.2",
+    "babel-plugin-import": "^1.12.0",
+    "commitizen": "^4.0.3",
+    "cross-env": "^5.2.0",
+    "cz-conventional-changelog": "^3.0.2",
+    "es-module-path-case-check": "^1.4.0",
+    "eslint": "^6.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "husky": "^3.0.1",
+    "lint-staged": "^9.2.0",
+    "rimraf": "^2.6.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
