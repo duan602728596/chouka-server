@@ -14,9 +14,11 @@ Vue.component('helmet-provider', HelmetProvider);
 const renderer = createRenderer();
 
 function server(url, context = {}, initialState = {}) {
+  const copy = JSON.parse(JSON.stringify(initialState));
+
   /* app */
   const app = new Vue({
-    store: storeFactory(initialState),
+    store: storeFactory(copy),
     router: routers,
     render() {
       return <App />;
