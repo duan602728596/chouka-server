@@ -21,8 +21,6 @@ class Index extends Vue {
   // 渲染list
   listRender(data) {
     return data.map((item, index) => {
-      console.log(item.length);
-
       return (
         <List.Item key={ index }>
           <div class={ classNames(style.gItem, 'clearfix') }>
