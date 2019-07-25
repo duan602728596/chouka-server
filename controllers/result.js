@@ -1,6 +1,6 @@
 import mysql from 'mysql';
+import choukaJson from '../chouka.json';
 
-const choukaJson = require('../chouka.json');
 const { db, cards } = choukaJson;
 
 /* 查询 */
