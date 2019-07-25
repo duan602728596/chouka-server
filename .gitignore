@@ -24,3 +24,4 @@ dist-server
 *.key
 
 .DS_Store
+chouka.json
