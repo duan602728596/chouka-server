@@ -24,7 +24,7 @@ class Index extends Vue {
         return;
       }
 
-      this.$router.push(`result?q=${ value.q }`);
+      window.location.href = `/result?q=${ value.q }`;
     });
   }
 
