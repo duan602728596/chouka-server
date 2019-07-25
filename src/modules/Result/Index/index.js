@@ -23,7 +23,7 @@ class Index extends Vue {
     return (
       <Layout class={ publicStyle.layout }>
         <Layout.Content class={ publicStyle.content }>
-          <h1 class={ style.title }>{ query }的查询结果：</h1>
+          <h1 class={ style.title }>{ query ? `${ query }的` : null }查询结果：</h1>
         </Layout.Content>
         <Footer />
       </Layout>

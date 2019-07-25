@@ -12,7 +12,7 @@ class Layout extends Vue {
       <div class={ publicStyle.layoutBox }>
         <helmet-provider>
           <helmet>
-            <title>{ query }的查询结果</title>
+            <title>{ query ? `${ query }的` : null }查询结果</title>
           </helmet>
         </helmet-provider>
         <Index />
