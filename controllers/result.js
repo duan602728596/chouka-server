@@ -39,10 +39,15 @@ function formatData(record) {
   for (const card of cards) {
     const f = {
       level: card.level,
+      has: 0,
       data: []
     };
 
     for (const d of card.data) {
+      if (record[d.id] > 0) {
+        f.has += 1;
+      }
+
       f.data.push({
         name: d.name,
         length: record[d.id]
@@ -52,7 +57,7 @@ function formatData(record) {
     result.push(f);
   }
 
-  return result;
+  return result.reverse();
 }
 
 export default async function(ctx, sweetOptions) {
@@ -65,7 +70,8 @@ export default async function(ctx, sweetOptions) {
     initialState: {
       result: {
         query: q,
-        list: record ? formatData(JSON.parse(record)) : []
+        list: record ? formatData(JSON.parse(record)) : [],
+        points: data ? Number(data[0].points) : 0
       }
     }
   };
