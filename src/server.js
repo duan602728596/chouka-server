@@ -16,7 +16,7 @@ const renderer = createRenderer();
 function server(url, context = {}, initialState = {}) {
   /* app */
   const app = new Vue({
-    store: storeFactory(JSON.parse(JSON.stringify(initialState))),
+    store: storeFactory(initialState),
     router: routers,
     render() {
       return <App />;

@@ -1,5 +1,5 @@
-import index from '../modules/Index/actions/index';
+import result from '../modules/Result/actions/index';
 
 export default {
-  index
+  result
 };

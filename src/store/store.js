@@ -11,7 +11,7 @@ export function storeFactory(initialState = {}) {
   /* store */
   Object.assign(store, new Vuex.Store({
     state: initialState,
-    modules: formatModules(modules)
+    modules: formatModules(modules, initialState)
   }));
 
   return store;

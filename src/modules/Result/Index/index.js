@@ -18,12 +18,12 @@ class Index extends Vue {
   }
 
   render() {
-    const q = this.$router.history?.current?.query?.q;
+    const query = this.$store.getters['result/getQuery']();
 
     return (
       <Layout class={ publicStyle.layout }>
         <Layout.Content class={ publicStyle.content }>
-          <h1 className={ style.title }>【{ q }】的查询结果：</h1>
+          <h1 class={ style.title }>{ query }的查询结果：</h1>
         </Layout.Content>
         <Footer />
       </Layout>

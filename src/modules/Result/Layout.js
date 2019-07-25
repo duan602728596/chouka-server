@@ -6,11 +6,13 @@ import Index from './Index/index';
 @Component
 class Layout extends Vue {
   render() {
+    const query = this.$store.getters['result/getQuery']();
+
     return (
       <div class={ publicStyle.layoutBox }>
         <helmet-provider>
           <helmet>
-            <title>查询结果</title>
+            <title>{ query }的查询结果</title>
           </helmet>
         </helmet-provider>
         <Index />
