@@ -21,11 +21,13 @@ class Index extends Vue {
   // 渲染list
   listRender(data) {
     return data.map((item, index) => {
+      const len = item.length || 0;
+
       return (
-        <List.Item key={ index }>
+        <List.Item key={ index } class={ len === 0 ? style.noCard : null }>
           <div class={ classNames(style.gItem, 'clearfix') }>
             <b class={ style.name }>{ item.name }</b>
-            <span class={ style.cardLen }>{ item.length || 0 }</span>
+            <span class={ style.cardLen }>{ len }</span>
           </div>
         </List.Item>
       );

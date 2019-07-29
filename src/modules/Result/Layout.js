@@ -8,7 +8,7 @@ import Index from './Index/index';
     titleTemplate() {
       const query = this.$store.getters['result/getQuery']();
 
-      return `${ query ? `${ query }的` : null }查询结果`;
+      return `${ query ? `${ query }的` : '' }查询结果`;
     }
   }
 })
