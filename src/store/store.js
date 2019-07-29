@@ -5,16 +5,36 @@ import formatModules from './formatModules';
 
 Vue.use(Vuex);
 
-const store = {};
+const store = {
+  store: null,
+  asyncModules: {}
+};
 
 export function storeFactory(initialState = {}) {
   /* store */
-  Object.assign(store, new Vuex.Store({
+  store.store = new Vuex.Store({
     state: initialState,
     modules: formatModules(modules, initialState)
-  }));
+  });
 
-  return store;
+  // 异步注入reducer
+  store.injectModule = function(actions) {
+    for (const key in actions) {
+      if (!(key in store.asyncModules)) {
+        const data = initialState[key];
+
+        // 注入initialState
+        if (data) {
+          actions[key].state = Object.assign(actions[key].state || {}, data || {});
+        }
+
+        store.store.registerModule(key, actions[key]);
+        store.asyncModules[key] = actions[key];
+      }
+    }
+  };
+
+  return store.store;
 }
 
 export default store;
