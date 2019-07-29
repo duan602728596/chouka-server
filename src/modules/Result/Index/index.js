@@ -34,9 +34,7 @@ class Index extends Vue {
     });
   }
 
-  groupRender() {
-    const list = this.$store.getters['result/getList']();
-
+  groupRender(list) {
     return list.map((item, index) => {
       return (
         <li key={ index } class={ style.listItem }>
@@ -53,6 +51,7 @@ class Index extends Vue {
   render() {
     const query = this.$store.getters['result/getQuery']();
     const points = this.$store.getters['result/getPoints']();
+    const list = this.$store.getters['result/getList']();
 
     return (
       <Layout class={ publicStyle.layout }>
@@ -62,7 +61,11 @@ class Index extends Vue {
             积分：
             { points }
           </p>
-          <ul class={ style.list }>{ this.groupRender() }</ul>
+          {
+            list.length === 0
+              ? <p class={ style.noInfo }>该账号暂无卡片信息。</p>
+              : <ul class={ style.list }>{ this.groupRender(list) }</ul>
+          }
         </Layout.Content>
         <Footer />
       </Layout>
