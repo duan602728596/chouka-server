@@ -17,23 +17,6 @@ export function storeFactory(initialState = {}) {
     modules: formatModules(modules, initialState)
   });
 
-  // 异步注入reducer
-  store.injectModule = function(actions) {
-    for (const key in actions) {
-      if (!(key in store.asyncModules)) {
-        const data = initialState[key];
-
-        // 注入initialState
-        if (data) {
-          actions[key].state = Object.assign(actions[key].state || {}, data || {});
-        }
-
-        store.store.registerModule(key, actions[key]);
-        store.asyncModules[key] = actions[key];
-      }
-    }
-  };
-
   return store.store;
 }
 

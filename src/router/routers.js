@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import store from '../store/store';
 import Index from '../modules/Index/Layout';
 
 Vue.use(VueRouter);
@@ -26,20 +25,6 @@ const routers = new VueRouter({
       component: ResultBundle
     }
   ]
-});
-
-routers.beforeResolve(function(to, from, next) {
-  const { matched } = to;
-
-  for (const item of matched) {
-    const actions = item?.components?.default?.options?.actions;
-
-    if (actions) {
-      store.injectModule(actions);
-    }
-  }
-
-  next();
 });
 
 export default routers;
