@@ -63,7 +63,7 @@ function formatData(record) {
 export default async function(ctx, sweetOptions) {
   const q = ctx?.query?.q;
   const data = q ? await queryData(q) : undefined;
-  const record = data ? data[0].record : undefined;
+  const record = (data && data.length > 0) ? data[0].record : undefined;
 
   return {
     title: `${ q ? `${ q }的` : '' }查询结果`,
@@ -71,7 +71,7 @@ export default async function(ctx, sweetOptions) {
       result: {
         query: q,
         list: record ? formatData(JSON.parse(record)) : [],
-        points: data ? Number(data[0].points) : 0
+        points: (data && data.length > 0) ? Number(data[0].points) : 0
       }
     }
   };
