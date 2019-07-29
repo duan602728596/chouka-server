@@ -4,7 +4,7 @@ import Index from '../modules/Index/Layout';
 
 Vue.use(VueRouter);
 
-const ResultBundle = () => import('../modules/Result/Layout');
+const ResultBundle = () => import(/* webpackChunkName: 'result' */ '../modules/Result/Layout');
 
 const routers = new VueRouter({
   mode: 'history',

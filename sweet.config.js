@@ -5,7 +5,10 @@ export default {
   dll: [
     'vue',
     'vue-router',
-    'vuex'
+    'vuex',
+    'vue-class-component',
+    'vue-meta',
+    'classnames'
   ],
   entry: {
     index: [path.join(__dirname, 'src/index.js')]
