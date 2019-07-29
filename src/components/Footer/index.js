@@ -7,7 +7,11 @@ import style from './index.sass';
 @Component
 class Footer extends Vue {
   render() {
-    return <Layout.Footer class={ style.footer }>林思意应援会</Layout.Footer>;
+    return (
+      <Layout.Footer class={ style.footer }>
+        应援会
+      </Layout.Footer>
+    );
   }
 }
 
