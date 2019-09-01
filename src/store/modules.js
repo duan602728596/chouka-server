@@ -1,4 +1,4 @@
-import result from '../modules/Result/actions/index';
+import result from '../pages/Result/actions/index';
 
 export default {
   result
