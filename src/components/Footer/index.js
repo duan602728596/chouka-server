@@ -9,7 +9,7 @@ class Footer extends Vue {
   render() {
     return (
       <Layout.Footer class={ style.footer }>
-        应援会
+        BEJ48-顼凘炀应援会
       </Layout.Footer>
     );
   }

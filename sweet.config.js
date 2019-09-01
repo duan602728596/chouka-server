@@ -27,7 +27,7 @@ export default {
   css: {
     modifyVars: {
       // https://github.com/vueComponent/ant-design-vue/blob/master/components/style/themes/default.less
-      '@primary-color': '#58b957'
+      '@primary-color': '#13c2c2'
     },
     include: /node_modules[\\/]ant-design-vue/
   },
